@@ -1,8 +1,5 @@
+import PetManager from '@/pages/PetManager';
 const App = () => {
-	return (
-		<>
-			<h1>Pet Manager</h1>
-		</>
-	);
+	return <PetManager />;
 };
 export default App;
