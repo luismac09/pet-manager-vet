@@ -1,7 +1,13 @@
-import Header from '@/components/Header';
+import MainContent from '@/components/MainContent';
+import MainHeader from '@/components/MainHeader';
 
 const PetManager = () => {
-	return <Header />;
+	return (
+		<>
+			<MainHeader />
+			<MainContent />
+		</>
+	);
 };
 
 export default PetManager;

@@ -1,6 +1,6 @@
-import css from './Header.module.css';
+import css from './MainHeader.module.css';
 
-const Header = () => {
+const MainHeader = () => {
 	return (
 		<header className={css.header}>
 			<h1 className={css.title}>
@@ -10,4 +10,4 @@ const Header = () => {
 		</header>
 	);
 };
-export default Header;
+export default MainHeader;
