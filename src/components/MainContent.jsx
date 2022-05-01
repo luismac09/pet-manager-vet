@@ -1,5 +1,6 @@
 import css from './MainContent.module.css';
 import MainForm from './MainForm';
+import MainList from './MainList';
 const MainContent = () => {
 	return (
 		<main className={css.main}>
@@ -8,7 +9,9 @@ const MainContent = () => {
 				<p className={css.main__subtitle}>register pets to manage</p>
 				<MainForm />
 			</section>
-			<section className={css.column}></section>
+			<section className={css.column}>
+				<MainList />
+			</section>
 		</main>
 	);
 };
