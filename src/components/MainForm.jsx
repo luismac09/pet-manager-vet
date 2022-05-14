@@ -6,17 +6,28 @@ const MainForm = () => {
 	const [email, setEmail] = useState('');
 	const [discharge, setDischarge] = useState('');
 	const [symptom, setSymptom] = useState('');
+
+	const [error, setError] = useState(false);
+	const [success, setSuccess] = useState(false);
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log('sending form data....');
+		if ([name, owner, email, discharge, symptom].includes('')) {
+			setError(true);
+			setSuccess(false);
+		} else {
+			setSuccess(true);
+			setError(false);
+		}
 	};
 	return (
 		<form className={css.form} onSubmit={handleSubmit}>
 			<h3 className={css.form__title}>
 				<img src='/form.svg' className={css.form__icon} alt='form' />{' '}
-				<span className={css.form__text}>INCLUYA AQUI LOS DATOS</span>
+				<span className={css.form__text}>include your data here</span>
 			</h3>
 			<div className={css.form__field}>
+				{error && <span className={css.error}>All fields are required</span>}
+				{success && <span className={css.success}>Sent Successfully</span>}
 				<label htmlFor='pet' className={css.form__label}>
 					<input
 						id='pet'
@@ -82,7 +93,7 @@ const MainForm = () => {
 					}}
 				></textarea>
 			</div>
-			<input type='submit' value='Enviar' className={css.form__submit} />
+			<input type='submit' value='Add Pet' className={css.form__submit} />
 		</form>
 	);
 };
