@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import css from './MainForm.module.css';
-const MainForm = () => {
+const MainForm = ({ pets, setPets }) => {
 	const [name, setName] = useState('');
 	const [owner, setOwner] = useState('');
 	const [email, setEmail] = useState('');
@@ -9,15 +10,29 @@ const MainForm = () => {
 
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
+
 	const handleSubmit = e => {
 		e.preventDefault();
-		if ([name, owner, email, discharge, symptom].includes('')) {
-			setError(true);
-			setSuccess(false);
-		} else {
-			setSuccess(true);
+		setError(true);
+		setSuccess(false);
+		if (![name, owner, email, discharge, symptom].includes('')) {
+			const interval = setInterval(() => {
+				setSuccess(true);
+			}, 0);
+			setTimeout(() => {
+				clearInterval(interval);
+				setSuccess(false);
+			}, 4000);
 			setError(false);
 		}
+
+		setPets([...pets, { name, owner, email, discharge, symptom }]);
+
+		setName('');
+		setOwner('');
+		setEmail('');
+		setDischarge('');
+		setSymptom('');
 	};
 	return (
 		<form className={css.form} onSubmit={handleSubmit}>
@@ -97,5 +112,8 @@ const MainForm = () => {
 		</form>
 	);
 };
-
+MainForm.propTypes = {
+	pets: PropTypes.array.isRequired,
+	setPets: PropTypes.func.isRequired
+};
 export default MainForm;
