@@ -16,3 +16,8 @@
 	padding-left: 0;
 	height: 60vh;
 }
+.message {
+	text-transform: uppercase;
+	font-weight: 600;
+	color: rgb(173, 170, 170);
+}

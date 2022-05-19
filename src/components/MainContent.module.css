@@ -1,7 +1,7 @@
-section:empty::after {
+/* section:empty::after {
 	content: 'nothing is shown yet';
 	color: rgb(173, 170, 170);
-}
+} */
 .main {
 	width: 96%;
 	max-width: 1200px;

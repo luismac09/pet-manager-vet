@@ -12,7 +12,7 @@ const MainContent = () => {
 				<MainForm pets={pets} setPets={setPets} />
 			</section>
 			<section className={css.column}>
-				<MainList />
+				<MainList pets={pets} />
 			</section>
 		</main>
 	);

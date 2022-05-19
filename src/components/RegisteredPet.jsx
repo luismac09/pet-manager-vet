@@ -1,29 +1,29 @@
+import PropTypes from 'prop-types';
 import css from './RegisteredPet.module.css';
-const RegisteredPet = () => {
+const RegisteredPet = ({ ...pet }) => {
 	return (
 		<li className={css.list}>
 			<p className={css.item}>
-				Pet:<span className={css.text}>beethoven</span>
+				Pet:<span className={css.text}>{pet.name}</span>
 			</p>
 			<p className={css.item}>
-				Owner:<span className={css.text}>Michael</span>
+				Owner:<span className={css.text}>{pet.owner}</span>
 			</p>
 			<p className={css.item}>
-				Email:<span className={css.text}>Michael@mail.com</span>
+				Email:<span className={css.text}>{pet.email}</span>
 			</p>
 			<p className={css.item}>
-				Discharge:<span className={css.text}>03/06/2022 </span>
+				Discharge:<span className={css.text}>{pet.discharge}</span>
 			</p>
 			<p className={css.item}>
 				Symptoms:
-				<span className={css.text}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-					porro dolorum distinctio animi quasi beatae voluptates pariatur sit
-					amet consectetur.
-				</span>
+				<span className={css.text}>{pet.symptom}</span>
 			</p>
 		</li>
 	);
 };
 
+RegisteredPet.propTypes = {
+	pet: PropTypes.object
+};
 export default RegisteredPet;
