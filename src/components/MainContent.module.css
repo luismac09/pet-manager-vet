@@ -12,13 +12,14 @@ section:empty::after {
 .column {
 	text-align: center;
 }
-.main__title {
+.title {
 	margin-top: 0;
 	margin-bottom: 0.3em;
 	color: hsl(248, 43%, 50%);
 }
-.main__subtitle {
+.subtitle {
 	margin-top: 0;
+	margin-bottom: 1em;
 	color: hsl(248, 43%, 50%, 0.8);
 }
 @media screen and (min-width: 768px) {

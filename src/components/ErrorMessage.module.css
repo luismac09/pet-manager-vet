@@ -1,0 +1,16 @@
+.error {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: hsl(0, 12%, 94%);
+	font-weight: 500;
+	border: 1px solid hsl(0, 50%, 43%);
+	background-color: hsl(0, 50%, 43%);
+	margin-bottom: 0.5em;
+	padding: 0.5em 1em;
+	border-radius: 12px;
+}
+.icon {
+	width: 25px;
+	height: 25px;
+}

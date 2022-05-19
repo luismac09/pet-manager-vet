@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import ErrorMessage from './ErrorMessage';
 import css from './MainForm.module.css';
+import SuccessMessage from './SuccessMessage';
 const MainForm = ({ pets, setPets }) => {
 	const [name, setName] = useState('');
 	const [owner, setOwner] = useState('');
@@ -36,30 +38,38 @@ const MainForm = ({ pets, setPets }) => {
 	};
 	return (
 		<form className={css.form} onSubmit={handleSubmit}>
-			<h3 className={css.form__title}>
-				<img src='/form.svg' className={css.form__icon} alt='form' />{' '}
+			<h3 className={css.title}>
+				<img src='/form.svg' className={css.icon} alt='form' />{' '}
 				<span className={css.form__text}>include your data here</span>
 			</h3>
-			<div className={css.form__field}>
-				{error && <span className={css.error}>All fields are required</span>}
-				{success && <span className={css.success}>Sent Successfully</span>}
-				<label htmlFor='pet' className={css.form__label}>
+			<div className={css.field}>
+				{error && (
+					<ErrorMessage>
+						<p>All fields are required</p>
+					</ErrorMessage>
+				)}
+				{success && (
+					<SuccessMessage>
+						<p>Sent Successfully</p>
+					</SuccessMessage>
+				)}
+				<label htmlFor='pet' className={css.label}>
 					<input
 						id='pet'
 						type='text'
-						className={css.form__input}
+						className={css.input}
 						placeholder="Pet's name"
 						value={name}
 						onChange={e => setName(e.target.value)}
 					/>
 				</label>
 			</div>
-			<div className={css.form__field}>
-				<label htmlFor='owner' className={css.form__label}>
+			<div className={css.field}>
+				<label htmlFor='owner' className={css.label}>
 					<input
 						id='owner'
 						type='text'
-						className={css.form__input}
+						className={css.input}
 						placeholder="Owner's name"
 						value={owner}
 						onChange={e => {
@@ -68,12 +78,12 @@ const MainForm = ({ pets, setPets }) => {
 					/>
 				</label>
 			</div>
-			<div className={css.form__field}>
-				<label htmlFor='email' className={css.form__label}>
+			<div className={css.field}>
+				<label htmlFor='email' className={css.label}>
 					<input
 						id='email'
 						type='email'
-						className={css.form__input}
+						className={css.input}
 						placeholder='Email'
 						value={email}
 						onChange={e => {
@@ -82,12 +92,12 @@ const MainForm = ({ pets, setPets }) => {
 					/>
 				</label>
 			</div>
-			<div className={css.form__field}>
-				<label htmlFor='discharge' className={css.form__label}>
+			<div className={css.field}>
+				<label htmlFor='discharge' className={css.label}>
 					<input
 						id='discharge'
 						type='date'
-						className={css.form__input}
+						className={css.input}
 						value={discharge}
 						min='2022-05-12'
 						max='2022-05-31'
@@ -97,9 +107,9 @@ const MainForm = ({ pets, setPets }) => {
 					/>
 				</label>
 			</div>
-			<div className={css.form__field}>
+			<div className={css.field}>
 				<textarea
-					className={css.form__textarea}
+					className={css.textarea}
 					id='symptom'
 					placeholder="Describe your pet's symptoms"
 					value={symptom}
@@ -108,7 +118,7 @@ const MainForm = ({ pets, setPets }) => {
 					}}
 				></textarea>
 			</div>
-			<input type='submit' value='Add Pet' className={css.form__submit} />
+			<input type='submit' value='Add Pet' className={css.submit} />
 		</form>
 	);
 };

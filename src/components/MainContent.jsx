@@ -7,8 +7,8 @@ const MainContent = () => {
 	return (
 		<main className={css.main}>
 			<section className={css.column}>
-				<h2 className={css.main__title}>Vetclinic Pet</h2>
-				<p className={css.main__subtitle}>register pets to manage</p>
+				<h2 className={css.title}>Vetclinic Pet</h2>
+				<p className={css.subtitle}>register pets to manage</p>
 				<MainForm pets={pets} setPets={setPets} />
 			</section>
 			<section className={css.column}>

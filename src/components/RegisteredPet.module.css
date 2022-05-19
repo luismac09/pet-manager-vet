@@ -1,4 +1,4 @@
-.list__item {
+.list {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
@@ -8,7 +8,7 @@
 	border-radius: 0.5em;
 	margin-bottom: 1em;
 }
-.list__row {
+.item {
 	margin: 0.2em;
 	font-weight: 700;
 	background-color: white;
@@ -16,7 +16,7 @@
 	border-radius: 0.4em;
 	color: rgb(143, 68, 19);
 }
-.list__text {
+.text {
 	font-weight: 400;
 	color: rgb(218, 149, 100);
 }

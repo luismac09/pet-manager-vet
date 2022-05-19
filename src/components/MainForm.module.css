@@ -20,6 +20,7 @@ textarea:focus {
 	margin-right: auto;
 	padding: 0.8em 1.5em;
 	margin-bottom: 3em;
+	border-radius: 8px;
 }
 @media screen and (min-width: 768px) {
 	.form {
@@ -27,26 +28,26 @@ textarea:focus {
 		margin-right: 0;
 	}
 }
-.form__title {
+.title {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-.form__icon {
+.icon {
 	width: 24px;
 }
-.form__text {
+.text {
 	margin-left: 0.5em;
 	text-transform: uppercase;
 }
-.form__field {
+.field {
 	margin-bottom: 1em;
 }
-.form__label {
+.label {
 	display: block;
 	margin: auto;
 }
-.form__input {
+.input {
 	border: none;
 	width: 100%;
 	height: 40px;
@@ -55,14 +56,14 @@ textarea:focus {
 	font-weight: 700;
 	border-radius: 0.7em;
 }
-.form__textarea {
+.textarea {
 	display: block;
 	width: 100%;
 	border-radius: 0.7em;
 	padding: 1em 1.2em;
 	height: 150px;
 }
-.form__submit {
+.submit {
 	width: 100%;
 	height: 45px;
 	background-color: hsl(0, 0%, 95%);
@@ -74,28 +75,8 @@ textarea:focus {
 	margin-bottom: 1.4em;
 }
 @media (hover: hover) {
-	.form__submit:hover {
+	.submit:hover {
 		cursor: pointer;
 		background-color: hsl(272, 71%, 87%);
 	}
-}
-
-.error,
-.success {
-	display: block;
-	color: hsl(0, 12%, 94%);
-	text-align: left;
-	font-weight: 500;
-
-	margin-bottom: 0.5em;
-	padding: 0.5em 1em;
-	border-radius: 12px;
-}
-.error {
-	border: 1px solid hsl(0, 50%, 43%);
-	background-color: hsl(0, 50%, 43%);
-}
-.success {
-	border: 1px solid hsl(123, 50%, 43%);
-	background-color: hsl(123, 50%, 43%);
 }
