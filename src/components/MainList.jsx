@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import css from './MainList.module.css';
 import RegisteredPet from './RegisteredPet.jsx';
 const MainList = ({ pets }) => {
-	console.log(pets);
 	const renderedPets =
 		pets.length > 0 ? (
-			pets.map(pet => <RegisteredPet key={pet.name} {...pet} />)
+			pets.map(pet => <RegisteredPet key={pet.id} {...pet} />)
 		) : (
 			<p className={css.message}>no pets yet</p>
 		);

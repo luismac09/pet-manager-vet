@@ -13,6 +13,9 @@ const MainForm = ({ pets, setPets }) => {
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
 
+	const randomizeId = () => {
+		return Math.random().toString(36).substring(2) + Date.now().toString(36);
+	};
 	const handleSubmit = e => {
 		e.preventDefault();
 		setError(true);
@@ -28,7 +31,10 @@ const MainForm = ({ pets, setPets }) => {
 			setError(false);
 		}
 
-		setPets([...pets, { name, owner, email, discharge, symptom }]);
+		setPets([
+			...pets,
+			{ id: randomizeId(), name, owner, email, discharge, symptom }
+		]);
 
 		setName('');
 		setOwner('');
