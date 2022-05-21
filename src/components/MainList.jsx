@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './MainList.module.css';
 import RegisteredPet from './RegisteredPet.jsx';
-const MainList = ({ pets }) => {
+const MainList = ({ pets, children }) => {
 	const renderedPets =
 		pets.length > 0 ? (
 			pets.map(pet => <RegisteredPet key={pet.id} {...pet} />)
@@ -10,14 +10,14 @@ const MainList = ({ pets }) => {
 		);
 	return (
 		<>
-			<h3 className={css.title}>list of pets</h3>
-			<p className={css.subtitle}>manage pets</p>
+			{children}
 			<ul className={css.list}>{renderedPets}</ul>
 		</>
 	);
 };
 
 MainList.propTypes = {
-	pets: PropTypes.array.isRequired
+	pets: PropTypes.array.isRequired,
+	children: PropTypes.object.isRequired
 };
 export default MainList;
