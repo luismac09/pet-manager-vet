@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 import css from './MainForm.module.css';
 import SuccessMessage from './SuccessMessage';
-const MainForm = ({ pets, setPets }) => {
+
+const MainForm = ({ pets, setPets, pet, setPet }) => {
 	const [name, setName] = useState('');
 	const [owner, setOwner] = useState('');
 	const [email, setEmail] = useState('');
@@ -12,7 +13,15 @@ const MainForm = ({ pets, setPets }) => {
 
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
-
+	useEffect(() => {
+		if (Object.keys(pet).length > 0) {
+			setName(pet.name);
+			setOwner(pet.owner);
+			setEmail(pet.email);
+			setDischarge(pet.discharge);
+			setSymptom(pet.symptom);
+		}
+	}, [pet]);
 	const randomizeId = () => {
 		return Math.random().toString(36).substring(2) + Date.now().toString(36);
 	};
@@ -30,12 +39,20 @@ const MainForm = ({ pets, setPets }) => {
 			}, 4000);
 			setError(false);
 		}
-
-		setPets([
-			...pets,
-			{ id: randomizeId(), name, owner, email, discharge, symptom }
-		]);
-
+		if (pet.id) {
+			const updatedData = pets.map(currentData =>
+				currentData.id === pet.id
+					? { id: pet.id, name, owner, email, discharge, symptom }
+					: currentData
+			);
+			setPets(updatedData);
+			setPet({});
+		} else {
+			setPets([
+				...pets,
+				{ id: randomizeId(), name, owner, email, discharge, symptom }
+			]);
+		}
 		setName('');
 		setOwner('');
 		setEmail('');
@@ -124,11 +141,17 @@ const MainForm = ({ pets, setPets }) => {
 					}}
 				></textarea>
 			</div>
-			<input type='submit' value='Add Pet' className={css.submit} />
+			<input
+				type='submit'
+				value={pet.id ? 'Edit Pet' : 'Add Pet'}
+				className={css.submit}
+			/>
 		</form>
 	);
 };
 MainForm.propTypes = {
+	pet: PropTypes.object.isRequired,
+	setPet: PropTypes.func.isRequired,
 	pets: PropTypes.array.isRequired,
 	setPets: PropTypes.func.isRequired
 };

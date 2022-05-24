@@ -4,6 +4,7 @@ import MainForm from './MainForm';
 import MainList from './MainList';
 const MainContent = () => {
 	const [pets, setPets] = useState([]);
+	const [pet, setPet] = useState({});
 	const renderedText = pets[0] ? (
 		<>
 			<h2 className={css.title}>List of Pets </h2>
@@ -20,10 +21,12 @@ const MainContent = () => {
 			<section className={css.column}>
 				<h2 className={css.title}>Vetclinic Pet</h2>
 				<p className={css.subtitle}>Register pets to manage</p>
-				<MainForm pets={pets} setPets={setPets} />
+				<MainForm pets={pets} setPets={setPets} pet={pet} setPet={setPet} />
 			</section>
 			<section className={css.column}>
-				<MainList pets={pets}>{renderedText}</MainList>
+				<MainList pets={pets} setPet={setPet}>
+					{renderedText}
+				</MainList>
 			</section>
 		</main>
 	);

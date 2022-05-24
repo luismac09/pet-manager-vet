@@ -1,29 +1,43 @@
 import PropTypes from 'prop-types';
 import css from './RegisteredPet.module.css';
-const RegisteredPet = ({ ...pet }) => {
+const RegisteredPet = data => {
+	const { name, owner, email, discharge, symptom, setPet } = data;
 	return (
 		<li className={css.list}>
 			<p className={css.item}>
-				Pet:<span className={css.text}>{pet.name}</span>
+				Pet:<span className={css.text}>{name}</span>
 			</p>
 			<p className={css.item}>
-				Owner:<span className={css.text}>{pet.owner}</span>
+				Owner:<span className={css.text}>{owner}</span>
 			</p>
 			<p className={css.item}>
-				Email:<span className={css.text}>{pet.email}</span>
+				Email:<span className={css.text}>{email}</span>
 			</p>
 			<p className={css.item}>
-				Discharge:<span className={css.text}>{pet.discharge}</span>
+				Discharge:<span className={css.text}>{discharge}</span>
 			</p>
 			<p className={css.item}>
 				Symptoms:
-				<span className={css.text}>{pet.symptom}</span>
+				<span className={css.text}>{symptom}</span>
 			</p>
+			<div className={css.field}>
+				<button
+					type='button'
+					className={css.button}
+					onClick={() => setPet(data)}
+				>
+					Edit
+				</button>
+				<button type='button' className={`${css.button} ${css.buttonRed}`}>
+					Delete
+				</button>
+			</div>
 		</li>
 	);
 };
 
 RegisteredPet.propTypes = {
-	pet: PropTypes.object
+	data: PropTypes.object,
+	setPet: PropTypes.func.isRequired
 };
 export default RegisteredPet;

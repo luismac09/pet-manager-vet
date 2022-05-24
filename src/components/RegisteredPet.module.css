@@ -20,3 +20,22 @@
 	font-weight: 400;
 	color: rgb(218, 149, 100);
 }
+.field {
+	width: 120px;
+	padding: 0.2em 0.2em;
+	display: flex;
+	justify-content: space-between;
+}
+.button {
+	color: white;
+	border: none;
+	outline: none;
+	font-family: inherit;
+	font-weight: 700;
+	border-radius: 0.4em;
+	background-color: rgb(218, 149, 100);
+	padding: 0.5em 1em;
+}
+.buttonRed {
+	background-color: rgb(218, 100, 100);
+}
