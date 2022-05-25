@@ -27,9 +27,8 @@ const MainForm = ({ pets, setPets, pet, setPet }) => {
 	};
 	const handleSubmit = e => {
 		e.preventDefault();
-		setError(true);
-		setSuccess(false);
-		if (![name, owner, email, discharge, symptom].includes('')) {
+		const petData = [name, owner, email, discharge, symptom];
+		if (!petData.includes('')) {
 			const interval = setInterval(() => {
 				setSuccess(true);
 			}, 0);
@@ -38,6 +37,9 @@ const MainForm = ({ pets, setPets, pet, setPet }) => {
 				setSuccess(false);
 			}, 4000);
 			setError(false);
+		} else {
+			setError(true);
+			setSuccess(false);
 		}
 		if (pet.id) {
 			const updatedData = pets.map(currentData =>
